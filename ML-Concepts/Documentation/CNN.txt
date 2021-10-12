@@ -16,9 +16,17 @@ CNN:
     - Extracts dominant features and works well with rotational and positional invariant features
     - Max pooling and average pooling
     - Takes max of every n x n pixels
+    - Pooling
+        - Downsampling operation
+        - Downsampling helps with recognizing images that are oriented differently
 - Max Pooling
     - Noise Suppressant
 - Softmax Classification
+- Takes feature map of a picture using filters
+    - Generates a good reference of image
+- Applies non-linearity activation function (usually ReLU)
+    - Negatives go to 0
+    - Positive stays the same
 
 References:
 Saha, Sumit. “A Comprehensive Guide to Convolutional Neural Networks - the eli5 Way.” Medium, Towards Data
