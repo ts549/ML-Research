@@ -1,0 +1,148 @@
+Learnings from Building AI Course in July 2021
+https://buildingai.elementsofai.com/
+
+
+- Simulated Annealing
+      - A type of optimization
+      - Instead of only focusing on going up, can go down a little to find other possible peaks
+      - prob = np.exp(-(S_old-S_new)/T)
+      - T is temperature
+            - Probably better to start at higher temp and decrease gradually
+      - Use conditional probability to make inferences
+- Bayes Rule
+      - P(A|B) = P(B|A)*P(A) / P(B)
+- Naive Bayes Classifier
+      - Use Bayes rule to separate cases into two classes
+      - Naive because doesn’t care about order
+      - Start with 1:1 odds (class1 vs. class2)
+            - Ratio is P(event | class1) / P(event | class2) for every event
+            - Multiply odds by ratio
+            - Probability that the object is class1 is: class1 / (class1 + class2)
+- Linear Regression
+      - a + c1 * x1 + c2 * x2 + ...
+      - x is the input variable
+            - Ex. square feet of a house
+      - c is the cost
+            - Ex. $30 per square feet of house
+      - a is intercept which is a constant that we can use to scale the output
+- Numpy operations
+      - x @ c
+            - Multiplies all values of x to corresponding value of c
+            - Takes the sum of these values
+            - Essentially dot product
+                  - Can also use np.dot(x, c)
+      - append
+            - Appends to current list (row-wise)
+      - vstack
+            - Vertically stacks (column-wise)
+- Least Squares
+      - Testing different coefficients
+      - Subtracting from actual result and squaring, and then taking sum
+      - Testing for different coefficients and finding least sum
+      - c = np.linalg.lstsq(x, y)[0]
+            - Calculates the best fitted coefficient for the set
+            - First index returns the results, the rest gives info about how the model fits data
+- Simple CSV file through Python
+      - from io import StringIO
+            - Ex.
+                  string = ‘’’
+                            5 6 10 11
+                            7 2 7 12
+                            ‘’’
+            - Can’t use the string in things like np.genfromtxt() until we wrap it in: StringIO(string)
+                    - Will get error if columns unequal (unequal words)
+- Nearest neighbor
+      - Run through the values in train_data and find the value(s) closest to the data point we are testing for
+      - All this does really is take the closest point from the test point and return the result for that as an estimate
+      - Distance is measured as the square root of the sum of (factor_x - factor_y)^2
+      - Euclidean distance means scale so that all factors have the same weight (basic x,y-coords)
+            - There are different distance methods that can scale weights differently
+            - Maybe an x increase in distance from water source is more important than an x increase in square feet
+      - Manhattan metric
+            - Distance calculated by measuring absolute difference in coordinates
+- KNN (K-nearest neighbor algorithm)
+      - Choose k-nearest labels and choose majority class among them
+      - More for binary classification (1 or 0) since we need the majority of the k-nearest
+- NLP (Natural Language Processing)
+      - Bag of words
+            - Count number of occurrences of words
+      - tf-idf
+            - Term Frequency Inverse Document Frequency
+            - More weight on infrequent words
+            - Steps:
+                    - Calculate term frequency of each word (occurrences / document length)
+                    - Calculate document frequency (how many documents have this word / total number of docs)
+                            - Document can just be a sentence
+                    - Different ways to combine this, but most common is:
+                              tf - idf = tf * log(1 / df)
+            - Explanation:
+                    - If word is common among documents, it is not informative in describing the document
+      - word2vec
+            - Dense vector representations of words
+            - Word embeddings
+                    - Words represented by vectors in vector space
+
+- Overfitting Data:
+      - Guaranteed to overfit if number of parameters is greater than or equal to number of data samples
+      - To avoid overfitting:
+            - Split data into train and test data so that you aren’t testing on the same data you trained with
+      - Cross validation
+            - Leave-one-out
+                    - Split data into n sets
+                    - Train using n-1 sets and test using the 1 set not trained with
+                    - Do this for all possible combinations of n-1 sets
+            - Other methods:
+                    - Regularization
+                    - Add dropout
+- Linear models
+      - Linear regression, logistic regression, naive bayes
+            - Logistic regression
+                    - Like linear regression except the output is pushed through a nonlinear function
+                            - Sigmoid function:
+                                    - Outputs between 0 and 1
+                                    - Logistic regression uses sigmoid
+                                    - Can be used as a probability
+                                    - s(z)=1 / (1+exp(−z))
+                    - Optimization criteria: Logarithmic loss
+- Neural Nets:
+      - Non-linear methods
+      - Non-linear activation function
+            - Sigmoid
+                    - Between 0 and 1
+            - Tanh
+                    - Between -1 and 1
+            - Relu (Rectified linear unit)
+                    - Sets all negs to 0 and keeps rest the same
+      - Model
+            - Each node assigned to different set of weights
+            - Set the bias
+            - Input for each node is dot product of weights and previous nodes + bias
+      - Limitations:
+            - More powerful neural net requires bigger network which means more parameters and more data needed or else it will overfit
+            - If not enough data, will not work well
+            - Also may result in too much computational time/resources
+      - CNN (Convolutional Neural Networks)
+            - First layer must have as many parameters as pixels
+                    - Doesn’t have to be different
+            - Filter masks
+            - Covers each N x N section of the image
+            - Can sharpen, blur, highlight, etc.
+            - DCL
+                    - Deformable Convolutional Layers
+                            - Ensure objects of any size can be identified by CNN
+      - RNN (Recurrent Neural Networks)
+            - LSTM
+            - Some of the layers are connected back to previous layers
+            - More complex, but network “remembers” past events (more in RNN documentation)
+      - FCN (Fully Convolutional Networks)
+            - Only contains convolutional layers
+            - Means that the output is another image
+            - Good for image segmentation
+      - GAN (Generative Adversarial Network)
+            - Create slightly changed/varying images for the Discriminator Network to classify
+            - Helps train, and uses sort of minimax, where the GAN and Discriminator Network are both working to try and do better than the other
+            - CycleGANs
+                    - Create a more diverse dataset for testing/training
+                    - Example: Using a picture of a car, but changing the color of the car from black to blue, creates twice as many training images for cars
+                    
+                    
