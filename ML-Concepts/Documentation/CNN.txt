@@ -1,0 +1,28 @@
+CNN Research done in July 2021
+
+CNN:
+- The idea is that the pixels of an image will be flattened into one layer and assign one pixel to a neuron
+- This gets intensive for high pixel images like 7000 x 8000
+- Need to use ConvNet filters to simplify images while keeping important features
+- Makes the flattening layer much less power consuming
+- Use Conv layers, dropout, pooling, downsampling, etc.
+    - First Conv Layer captures low-level
+- Padding
+    - Valid padding
+        - Increases dimensionality
+    - Same padding
+        - Dimensionality remains the same
+- Pooling Layer
+    - Extracts dominant features and works well with rotational and positional invariant features
+    - Max pooling and average pooling
+    - Takes max of every n x n pixels
+- Max Pooling
+    - Noise Suppressant
+- Softmax Classification
+
+References:
+Saha, Sumit. “A Comprehensive Guide to Convolutional Neural Networks - the eli5 Way.” Medium, Towards Data
+    Science, 17 Dec. 2018, https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-
+    networks-the-eli5-way-3bd2b1164a53.
+
+https://github.com/vdumoulin/conv_arithmetic ; author @vdumoulin
