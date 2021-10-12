@@ -1,4 +1,4 @@
-#Side project done on May 23, 2021
+#Side project done in May 2021
 #Used research done on machine learning concepts to createa  sequential model for public dataset of boston housing prices
 
 #Code block 1
