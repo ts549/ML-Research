@@ -1,5 +1,6 @@
-#Side project done in May 2021
-#Used research done on machine learning concepts to createa  sequential model for public dataset of boston housing prices
+#Created in Google Colab in May 2021
+#Used research done on machine learning concepts to create a sequential model for public dataset of boston housing prices
+#Code block n denotes the n-th cell in Colab
 
 #Code block 1
 %tensorflow_version 2.x
