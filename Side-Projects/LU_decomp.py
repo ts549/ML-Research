@@ -1,4 +1,5 @@
 #Small project done to understand the LUDecomp function used in libraries such as SciPy
+#Current function takes in pre-specified input from compile time, but can be changed to accept user input
 #Created in July of 2021
 
 import numpy as np
