@@ -1,3 +1,6 @@
+#Small project done to understand the LUDecomp function used in libraries such as SciPy
+#Created in July of 2021
+
 import numpy as np
 
 mat_A = np.asarray([[1, 3, 4, 8], [2, 5, 8, 10], [6, 3, 5, 9], [2, 4, 6, 1]])
