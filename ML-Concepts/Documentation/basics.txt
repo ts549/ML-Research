@@ -1,0 +1,39 @@
+Perceptron
+  - Inputs multiplied with weights, and sum them together
+      - Basically think of inputs and weights as vectors and you take the dot product
+  - Pass the sum through a non-linear activation function
+      - Add a bias term to the sum before activation function
+          - Purpose is to allow activation function to shift to left or right regardless of input
+Activation function
+  - Sigmoid function is an example
+      - Takes any real number and returns a scalar output between 0 and 1
+      - Common use is when dealing with probabilities
+  - Purpose is to introduce non-linearities into the data
+Dense layers
+  - Multiple outputs/perceptrons that are connected to inputs with different weights
+Softmax cross entropy loss
+Gradient descent
+  - Taking the gradient and moving downwards
+  - Subtract from total squared mean loss
+  - If learning rate too big, can get stuck at local minima
+  - If learning rate too large can overshoot and miss the minimum
+Back propagation
+  - How does a small change in one weight affect final loss
+  - Apply chain rule to dJ(W)/dw1 and move backwards
+      - = dJ(W)/dy * dy/dz1 * dz1/dw1 … etc.
+Batched gradient descent
+  - Splitting data into mini-matches
+  - Allows for larger learning rates
+  - Can parallelize computation and increase speed
+Fitting
+  - Underfitting
+      - Line model does not describe the entire data (Ideal fit if it does)
+  - Overfitting
+      - Too complex, there are too many parameters and doesn’t describe data well
+Regularization
+  - Discourages learning complex data
+  - Dropout
+      - Randomly set activations to 0 (typically 50%)
+      - Forces network to not rely on any one node
+  - Early Stopping
+      - Stop training before we have a change to overfit
