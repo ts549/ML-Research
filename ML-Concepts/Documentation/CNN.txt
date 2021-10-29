@@ -34,3 +34,4 @@ Saha, Sumit. “A Comprehensive Guide to Convolutional Neural Networks - the
     networks-the-eli5-way-3bd2b1164a53.
 
 https://github.com/vdumoulin/conv_arithmetic ; author @vdumoulin
+
